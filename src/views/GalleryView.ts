@@ -12,6 +12,16 @@ interface GalleryEntry {
 	rating?: number;
 }
 
+// add near the top of the file, after GalleryEntry interface
+interface BookFrontmatter {
+    tags?: string | string[];
+    cover?: string;
+    title?: string;
+    author?: string | string[];
+    status?: string;
+    rating?: number;
+}
+
 export class GalleryView extends ItemView {
 	constructor(leaf: WorkspaceLeaf, private plugin: TomePlugin) {
 		super(leaf);
@@ -39,7 +49,9 @@ export class GalleryView extends ItemView {
 		const header = container.createDiv({ cls: "tome-gallery-header" });
 		header.createEl("h2", { text: "Tome library" });
 		const refreshBtn = header.createEl("button", { text: "Refresh" });
-		refreshBtn.addEventListener("click", () => this.render());
+		refreshBtn.addEventListener("click", () => {
+    void this.render();
+							});
 
 		const entries = this.collectBooks();
 
@@ -71,8 +83,8 @@ export class GalleryView extends ItemView {
 				const opt = statusEl.createEl("option", { text: s, value: s });
 				if (s === entry.status) opt.selected = true;
 			});
-			statusEl.addEventListener("change", async () => {
-				await this.plugin.updateFrontmatterField(entry.file, "status", statusEl.value);
+			statusEl.addEventListener("change", () => {
+    void this.plugin.updateFrontmatterField(entry.file, "status", statusEl.value);
 			});
 
 			const ratingEl = card.createDiv({ cls: "tome-card-rating" });
@@ -81,14 +93,15 @@ export class GalleryView extends ItemView {
 					text: (entry.rating ?? 0) >= i ? "★" : "☆",
 					cls: "tome-star",
 				});
-				star.addEventListener("click", async () => {
-					await this.plugin.updateFrontmatterField(entry.file, "rating", i);
-					this.render();
-				});
+				star.addEventListener("click", () => {
+    void this.plugin.updateFrontmatterField(entry.file, "rating", i).then(() => {
+        void this.render();
+    		});
+			});
 			}
 
 			card.addEventListener("dblclick", () => {
-				this.app.workspace.getLeaf(false).openFile(entry.file);
+    void this.app.workspace.getLeaf(false).openFile(entry.file);
 			});
 		}
 	}
@@ -98,7 +111,7 @@ export class GalleryView extends ItemView {
 		const entries: GalleryEntry[] = [];
 
 		for (const file of files) {
-			const fm = this.app.metadataCache.getFileCache(file)?.frontmatter;
+			const fm = this.app.metadataCache.getFileCache(file)?.frontmatter as BookFrontmatter | undefined;
 			if (!fm) continue;
 			const tags = fm.tags;
 			const isBook = Array.isArray(tags) ? tags.includes("book") : tags === "book";

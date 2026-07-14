@@ -40,7 +40,7 @@ export class BookDetailsModal extends Modal {
 				s
 					.setLimits(0, 5, 0.5)
 					.setValue(0)
-					.setDynamicTooltip()
+					
 					.onChange((v) => (rating = v))
 			);
 
@@ -51,7 +51,7 @@ export class BookDetailsModal extends Modal {
 				s
 					.setLimits(0, 100, 5)
 					.setValue(0)
-					.setDynamicTooltip()
+					
 					.onChange((v) => (progress = v))
 			);
 
