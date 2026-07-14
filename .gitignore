@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+main.js
+main.js.map
+*.js.map
+
+# TypeScript build info
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+
+# Editor
+.vscode/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env / secrets (just in case you ever add a .env for local testing)
+.env
+.env.local

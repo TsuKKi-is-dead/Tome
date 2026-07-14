@@ -1,0 +1,126 @@
+.tome-gallery-container {
+	padding: 12px 20px;
+}
+
+.tome-gallery-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 12px;
+}
+
+.tome-gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 18px;
+}
+
+.tome-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	background: var(--background-secondary);
+	border-radius: 8px;
+	padding: 10px;
+	transition: transform 0.1s ease;
+}
+
+.tome-card:hover {
+	transform: translateY(-2px);
+}
+
+.tome-card-cover img {
+	width: 120px;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 4px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.tome-no-cover {
+	width: 120px;
+	height: 180px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--background-modifier-border);
+	border-radius: 4px;
+	font-size: 2em;
+	color: var(--text-muted);
+}
+
+.tome-card-title {
+	font-weight: 600;
+	margin-top: 8px;
+	font-size: 0.95em;
+}
+
+.tome-card-author {
+	color: var(--text-muted);
+	font-size: 0.85em;
+	margin-bottom: 6px;
+}
+
+.tome-card-status {
+	font-size: 0.8em;
+	margin-bottom: 4px;
+}
+
+.tome-card-rating {
+	cursor: pointer;
+}
+
+.tome-star {
+	color: var(--text-accent);
+	font-size: 1.1em;
+	margin: 0 1px;
+}
+
+/* Results modal */
+.tome-results-list {
+	max-height: 60vh;
+	overflow-y: auto;
+}
+
+.tome-result-item {
+	display: flex;
+	gap: 12px;
+	padding: 8px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.tome-result-item:hover {
+	background: var(--background-modifier-hover);
+}
+
+.tome-result-cover img {
+	width: 60px;
+	height: 90px;
+	object-fit: cover;
+	border-radius: 3px;
+}
+
+.tome-result-cover .tome-no-cover {
+	width: 60px;
+	height: 90px;
+	font-size: 0.75em;
+}
+
+.tome-result-title {
+	font-weight: 600;
+}
+
+.tome-result-authors,
+.tome-result-meta,
+.tome-result-source {
+	font-size: 0.85em;
+	color: var(--text-muted);
+}
+
+.tome-template-textarea {
+	width: 100%;
+	font-family: var(--font-monospace);
+	font-size: 0.85em;
+}
