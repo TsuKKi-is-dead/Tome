@@ -2,13 +2,6 @@ import { App, normalizePath, requestUrl } from "obsidian";
 
 const VALID_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 
-/**
- * Downloads a cover image and saves it into the vault's covers folder.
- * Returns the vault-relative path to use in a note embed (e.g. "Books/covers/9780593135204.jpg"),
- * or null if the download failed or the response wasn't actually an image
- * (defensive check - never trust an API result's content-type claim blindly, but also
- * never write unverified bytes to disk as if they were an image).
- */
 export async function downloadCover(
 	app: App,
 	url: string,

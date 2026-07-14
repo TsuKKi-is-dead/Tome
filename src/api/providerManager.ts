@@ -11,14 +11,6 @@ interface SearchCacheEntry {
 	results: BookRecord[];
 }
 
-/**
- * Orchestrates lookups across providers.
- * - Tries providers in the user-configured priority order.
- * - "Fallback" means: if the primary provider returns zero results, OR returns results
- *   missing a cover image, try the next provider and merge in what's missing.
- * - Caches search results in-memory for a few minutes so retyping/re-opening the same
- *   search doesn't re-hit rate limits or providers unnecessarily.
- */
 export class ProviderManager {
 	private cache = new Map<string, SearchCacheEntry>();
 	private readonly cacheTtlMs = 5 * 60 * 1000;

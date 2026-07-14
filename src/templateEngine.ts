@@ -13,12 +13,6 @@ export interface TemplateContext extends BookRecord {
 	coverPath: string;
 }
 
-/**
- * Fills {{placeholder}} tokens in a template string with book metadata.
- * Runs BEFORE Templater processes the note (if Templater is installed), so users
- * can freely mix Tome placeholders with Templater's <% tp.* %> syntax in the same template -
- * Tome only touches its own {{...}} tokens and leaves everything else untouched.
- */
 export function renderTemplate(template: string, ctx: TemplateContext): string {
 	const values: Record<string, string> = {
 		title: yamlEscape(ctx.title ?? ""),

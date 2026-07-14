@@ -1,7 +1,4 @@
-/**
- * Simple token-bucket rate limiter, one instance per API host.
- * Prevents Tome from hammering free public APIs and getting the user's IP throttled/blocked.
- */
+
 export class RateLimiter {
 	private tokens: number;
 	private readonly max: number;

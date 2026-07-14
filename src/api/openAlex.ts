@@ -4,12 +4,7 @@ import { safeRequest, isIsbn } from "./httpUtil";
 
 const BASE = "https://api.openalex.org/works";
 
-/**
- * OpenAlex indexes scholarly works, including academic books/monographs, but it does not
- * host cover images - it's included here as a metadata fallback (DOI, subjects, publisher,
- * publication year) for academic titles that Open Library / Google Books don't have well
- * described, not as a general cover-art source.
- */
+
 export async function searchOpenAlex(
 	query: string,
 	mailto?: string
