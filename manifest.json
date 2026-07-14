@@ -1,7 +1,7 @@
 {
   "id": "tome",
   "name": "Tome",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.9.0",
   "description": "Search books across Google Books, Open Library and OpenAlex with automatic fallback, cache covers locally, generate customizable note templates, and track reading status/ratings/progress. Works with Dataview and Templater.",
   "author": "Mohit",
