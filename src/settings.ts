@@ -75,9 +75,9 @@ export class TomeSettingTab extends PluginSettingTab {
 		containerEl.empty();
 		const s = this.plugin.settings;
 
-		containerEl.createEl("h2", { text: "Tome settings" });
+		new Setting(containerEl).setName("Tome settings").setHeading();
 
-		containerEl.createEl("h3", { text: "Providers" });
+		new Setting(containerEl).setName("Providers").setHeading();
 
 		new Setting(containerEl)
 			.setName("Open Library")
@@ -131,7 +131,7 @@ export class TomeSettingTab extends PluginSettingTab {
 				})
 			);
 
-		containerEl.createEl("h3", { text: "Storage" });
+		new Setting(containerEl).setName("Storage").setHeading();
 
 		new Setting(containerEl)
 			.setName("Notes folder")
@@ -165,7 +165,7 @@ export class TomeSettingTab extends PluginSettingTab {
 				})
 			);
 
-		containerEl.createEl("h3", { text: "Note template" });
+		new Setting(containerEl).setName("Note template").setHeading();
 
 		new Setting(containerEl)
 			.setName("File name template")
