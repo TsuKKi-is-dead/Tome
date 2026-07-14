@@ -75,7 +75,7 @@ export class TomeSettingTab extends PluginSettingTab {
 		containerEl.empty();
 		const s = this.plugin.settings;
 
-		new Setting(containerEl).setName("Tome settings").setHeading();
+		
 
 		new Setting(containerEl).setName("Providers").setHeading();
 
