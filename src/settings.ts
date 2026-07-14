@@ -41,7 +41,7 @@ published: {{publishedDate}}
 pages: {{pageCount}}
 language: "{{language}}"
 subjects: [{{subjects}}]
-cover: "{{coverPath}}"
+cover: "[[{{coverPath}}]]"
 status: {{status}}
 rating: {{rating}}
 progress: {{progress}}
@@ -52,7 +52,7 @@ source: {{source}}
 tags: [book]
 ---
 
-![[{{coverPath}}|200]]
+{{coverEmbed}}
 
 ## Notes
 
